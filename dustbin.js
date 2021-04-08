@@ -1,4 +1,4 @@
-class dustbin
+class Dustbin
 {
 	constructor(x,y)
 	{
@@ -8,10 +8,10 @@ class dustbin
 		this.dustbinHeight=213;
 		this.wallThickness=20;
 		
-		this.bottomBody=Bodies.rectangle(this.x, this.y, this.dustbinWidth, this.wallThickness, {isStatic:true})
+		this.bottomBody=Bodies.rectangle(this.x-90,this.y, this.dustbinWidth, 10, {isStatic:true})
 		this.leftWallBody=Bodies.rectangle(this.x-this.dustbinWidth/2, this.y-this.dustbinHeight/2, this.wallThickness, this.dustbinHeight, {isStatic:true})
 		
-		
+		this.image =loadImage("dustbingreen.png")
 
 		this.rightWallBody=Bodies.rectangle(this.x+this.dustbinWidth/2, this.y-this.dustbinHeight/2, this.wallThickness, this.dustbinHeight, {isStatic:true})
 		
@@ -49,12 +49,13 @@ class dustbin
 			pop()
 
 			push()
-			translate(posBottom.x, posBottom.y+10);
+			translate(posBottom.x, posBottom.y-200);
 			rectMode(CENTER)
 			strokeWeight(4);
 			angleMode(RADIANS)
 			fill(255)
-			rect(0,0,this.dustbinWidth, this.wallThickness);
+			//rect(0,0,this.dustbinWidth, this.wallThickness);
+			image(this.image,0,0,this.dustbinWidth,200)
 			pop()
 			
 	}
